@@ -20,8 +20,6 @@ import { getServerSideURL } from './utilities/getURL'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-console.log('PAYLOAD_SECRET loaded:', process.env.PAYLOAD_SECRET)
-
 export default buildConfig({
   admin: {
     components: {
