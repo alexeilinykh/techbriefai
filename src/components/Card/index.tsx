@@ -9,7 +9,7 @@ import type { Post } from '@/payload-types'
 
 import { Media } from '@/components/Media'
 
-export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title' | 'createdAt'>
+export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title' | 'publishedAt'>
 
 export const Card: React.FC<{
   alignItems?: 'center'
@@ -22,7 +22,7 @@ export const Card: React.FC<{
   const { card, link } = useClickableCard({})
   const { className, doc, relationTo, showCategories, title: titleFromProps } = props
 
-  const { slug, categories, meta, title, createdAt } = doc || {}
+  const { slug, categories, meta, title, publishedAt } = doc || {}
   const { description, image: metaImage } = meta || {}
 
   const hasCategories = categories && Array.isArray(categories) && categories.length > 0
@@ -82,10 +82,10 @@ export const Card: React.FC<{
             <p>{sanitizedDescription}</p>
           </div>
         )}
-        {createdAt && (
+        {publishedAt && (
           <div className="mt-4">
-            <time dateTime={createdAt} className="text-sm text-gray-500">
-              {formatDateTime(createdAt)}
+            <time dateTime={publishedAt} className="text-sm text-gray-500">
+              {formatDateTime(publishedAt)}
             </time>
           </div>
         )}
