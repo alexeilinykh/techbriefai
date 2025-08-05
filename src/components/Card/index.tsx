@@ -1,5 +1,6 @@
 'use client'
 import { cn } from '@/utilities/ui'
+import { formatDateTime } from '@/utilities/formatDateTime'
 import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
@@ -8,7 +9,7 @@ import type { Post } from '@/payload-types'
 
 import { Media } from '@/components/Media'
 
-export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title'>
+export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title' | 'createdAt'>
 
 export const Card: React.FC<{
   alignItems?: 'center'
@@ -21,7 +22,7 @@ export const Card: React.FC<{
   const { card, link } = useClickableCard({})
   const { className, doc, relationTo, showCategories, title: titleFromProps } = props
 
-  const { slug, categories, meta, title } = doc || {}
+  const { slug, categories, meta, title, createdAt } = doc || {}
   const { description, image: metaImage } = meta || {}
 
   const hasCategories = categories && Array.isArray(categories) && categories.length > 0
@@ -76,7 +77,18 @@ export const Card: React.FC<{
             </h3>
           </div>
         )}
-        {description && <div className="mt-2">{description && <p>{sanitizedDescription}</p>}</div>}
+        {description && (
+          <div className="mt-2">
+            <p>{sanitizedDescription}</p>
+          </div>
+        )}
+        {createdAt && (
+          <div className="mt-4">
+            <time dateTime={createdAt} className="text-sm text-gray-500">
+              {formatDateTime(createdAt)}
+            </time>
+          </div>
+        )}
       </div>
     </article>
   )
