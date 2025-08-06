@@ -19,6 +19,8 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const pathname = usePathname()
 
+  const isPostPage = pathname.startsWith('/posts')
+
   useEffect(() => {
     setHeaderTheme(null)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -30,9 +32,16 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   }, [headerTheme])
 
   return (
-    <header className="container relative z-20   " {...(theme ? { 'data-theme': theme } : {})}>
+    <header className="container relative z-20" {...(theme ? { 'data-theme': theme } : {})}>
       <div className="py-8 flex justify-between">
-        <Link href="/">TechBriefAI</Link>
+        <Link
+          href="/"
+          className={`${
+            isPostPage ? 'text-white' : 'text-black'
+          } transition-colors duration-200 ease-in-out`}
+        >
+          TechBriefAI
+        </Link>
         <HeaderNav data={data} />
       </div>
     </header>
