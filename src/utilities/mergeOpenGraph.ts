@@ -3,10 +3,11 @@ import { getServerSideURL } from './getURL'
 
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
-  description: 'An open-source website built with Payload and Next.js.',
+  description:
+    'TechBriefAI brings you AI summaries of the latest announcements from the tech world.',
   images: [
     {
-      url: `${getServerSideURL()}/website-template-OG.webp`,
+      url: `${getServerSideURL()}/techbriefai-logo.png`,
     },
   ],
   siteName: 'TechBriefAI',
