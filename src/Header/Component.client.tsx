@@ -19,7 +19,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const pathname = usePathname()
 
-  const isPostPage = pathname.startsWith('/posts')
+  const isPostPage = pathname.startsWith('/posts/')
 
   useEffect(() => {
     setHeaderTheme(null)
