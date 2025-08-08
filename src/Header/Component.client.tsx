@@ -37,7 +37,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         <Link
           href="/"
           className={`${
-            isPostPage ? 'text-white' : 'text-black'
+            isPostPage ? 'text-white' : 'text-black dark:text-white'
           } transition-colors duration-200 ease-in-out`}
         >
           TechBriefAI
