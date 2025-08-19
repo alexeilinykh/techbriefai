@@ -47,7 +47,7 @@ export const generateMeta = async (args: {
   return {
     description,
     openGraph: mergeOpenGraph({
-      description: doc?.meta?.description || '',
+      description: description,
       images: ogImage
         ? [
             {
