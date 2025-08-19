@@ -151,7 +151,7 @@ export const Posts: CollectionConfig<'posts'> = {
               relationTo: 'media',
             }),
 
-            MetaDescriptionField({}),
+            MetaDescriptionField({ hasGenerateFn: true }),
             PreviewField({
               // if the `generateUrl` function is configured
               hasGenerateFn: true,
