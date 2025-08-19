@@ -10,12 +10,13 @@ import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { searchFields } from '@/search/fieldOverrides'
 import { beforeSyncWithSearch } from '@/search/beforeSync'
+import { extractFirstParagraph } from '@/utilities/extractFirstParagraph'
 
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
+  return doc?.title ? `${doc.title} | TechBriefAI` : 'TechBriefAI'
 }
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
@@ -54,6 +55,14 @@ export const plugins: Plugin[] = [
   seoPlugin({
     generateTitle,
     generateURL,
+    generateDescription: async ({ doc }) => {
+      const content = doc.content || { root: { children: [] } }
+      // Extract first paragraph after h1
+      const summary = extractFirstParagraph(content)
+      // Format meta description with keyword and CTA
+      const truncated = summary.length > 120 ? summary.slice(0, 117) + '...' : summary
+      return summary ? `${truncated}` : 'Latest tech news and updates. Read more!'
+    },
   }),
   formBuilderPlugin({
     fields: {
