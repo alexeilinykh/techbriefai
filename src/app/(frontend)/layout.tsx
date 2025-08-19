@@ -17,6 +17,7 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
+import Script from 'next/script'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
@@ -42,6 +43,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         </Providers>
         <Analytics />
         <GoogleAnalytics gaId="G-86SRCW4200" />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-975481101');
+          `}
+        </Script>
       </body>
     </html>
   )
