@@ -13,6 +13,7 @@ import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
 import { Analytics } from '@vercel/analytics/next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
@@ -40,6 +41,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Footer />
         </Providers>
         <Analytics />
+        <GoogleAnalytics gaId="G-86SRCW4200" />
       </body>
     </html>
   )
