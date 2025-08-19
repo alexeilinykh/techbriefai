@@ -32,6 +32,13 @@ export const generateMeta = async (args: {
     : doc?.title + ' | TechBriefAI'
 
   let description = doc?.meta?.description || ''
+
+  console.log(!description)
+  console.log(doc)
+  console.log(typeof doc)
+  console.log('content' in doc)
+  console.log(typeof (doc as any).content === 'string')
+
   if (
     !description &&
     doc &&
