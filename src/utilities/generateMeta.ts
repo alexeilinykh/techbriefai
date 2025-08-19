@@ -35,20 +35,16 @@ export const generateMeta = async (args: {
 
   console.log(!description)
   console.log(doc)
-  console.log(typeof doc)
-  console.log('content' in doc)
-  console.log(typeof (doc as any).content === 'string')
 
-  if (
-    !description &&
-    doc &&
-    typeof doc === 'object' &&
-    'content' in doc &&
-    typeof (doc as any).content === 'string'
-  ) {
-    const summary = extractFirstParagraph((doc as any).content)
-    const truncated = summary.length > 120 ? summary.slice(0, 117) + '...' : summary
-    description = summary ? `${truncated} Read more!` : 'Latest tech news and updates. Read more!'
+  if (!description && doc) {
+    console.log('content' in doc)
+
+    if ('content' in doc && doc.content) {
+      console.log(doc.content)
+      const summary = extractFirstParagraph(doc.content)
+      const truncated = summary.length > 120 ? summary.slice(0, 117) + '...' : summary
+      description = summary ? `${truncated} Read more!` : 'Latest tech news and updates. Read more!'
+    }
   }
 
   return {
