@@ -33,17 +33,11 @@ export const generateMeta = async (args: {
 
   let description = doc?.meta?.description || ''
 
-  console.log(!description)
-  console.log(doc)
-
   if (!description && doc) {
-    console.log('content' in doc)
-
     if ('content' in doc && doc.content) {
-      console.log(doc.content)
       const summary = extractFirstParagraph(doc.content)
       const truncated = summary.length > 120 ? summary.slice(0, 117) + '...' : summary
-      description = summary ? `${truncated} Read more!` : 'Latest tech news and updates. Read more!'
+      description = summary ? `${truncated}` : 'Latest tech news and updates. Read more!'
     }
   }
 
