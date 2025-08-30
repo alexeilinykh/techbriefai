@@ -41,16 +41,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
           <Footer />
         </Providers>
-        {/* <Analytics /> */}
-        {/* <GoogleAnalytics gaId="G-86SRCW4200" /> */}
-        {/* <Script id="google-ads" strategy="afterInteractive">
+        <Analytics />
+        <GoogleAnalytics gaId="G-86SRCW4200" />
+        <Script id="google-ads" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-975481101');
           `}
-        </Script> */}
+        </Script>
       </body>
     </html>
   )
