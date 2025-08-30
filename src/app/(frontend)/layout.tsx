@@ -42,7 +42,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Footer />
         </Providers>
         <Analytics />
-        <GoogleAnalytics gaId="G-86SRCW4200" />
+        {/* <GoogleAnalytics gaId="G-86SRCW4200" /> */}
         {/* <Script id="google-ads" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
