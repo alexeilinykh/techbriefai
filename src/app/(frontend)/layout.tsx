@@ -41,7 +41,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
           <Footer />
         </Providers>
-        <Analytics />
+        {/* <Analytics /> */}
         {/* <GoogleAnalytics gaId="G-86SRCW4200" /> */}
         {/* <Script id="google-ads" strategy="afterInteractive">
           {`
