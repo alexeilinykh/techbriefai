@@ -84,7 +84,7 @@ export const Card: React.FC<{
         )}
         {publishedAt && (
           <div className="mt-4">
-            <time dateTime={publishedAt} className="text-sm text-gray-500">
+            <time dateTime={publishedAt} className="text-sm text-gray-500" suppressHydrationWarning>
               {formatDateTime(publishedAt)}
             </time>
           </div>
