@@ -1,4 +1,4 @@
-import type { Metadata } from 'next/types'
+import type { Metadata } from 'next'
 
 import { CollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
@@ -10,6 +10,12 @@ import PageClient from './page.client'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/posts',
+  },
+}
 
 export default async function Page() {
   const payload = await getPayload({ config: configPromise })
@@ -54,10 +60,4 @@ export default async function Page() {
       </div>
     </div>
   )
-}
-
-export function generateMetadata(): Metadata {
-  return {
-    title: `TechBriefAI Posts`,
-  }
 }

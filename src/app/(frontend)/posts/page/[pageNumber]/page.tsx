@@ -62,10 +62,16 @@ export default async function Page({ params: paramsPromise }: Args) {
   )
 }
 
-export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { pageNumber } = await paramsPromise
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ pageNumber: string }>
+}): Promise<Metadata> {
+  const { pageNumber } = await params
   return {
-    title: `Payload Website Template Posts Page ${pageNumber || ''}`,
+    alternates: {
+      canonical: `/posts/page/${pageNumber}`,
+    },
   }
 }
 

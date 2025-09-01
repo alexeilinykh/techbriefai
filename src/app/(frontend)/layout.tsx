@@ -16,8 +16,10 @@ import { Analytics } from '@vercel/analytics/next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 import './globals.css'
-import { getServerSideURL } from '@/utilities/getURL'
 import Script from 'next/script'
+
+// Use an env var so previews/staging can still point at the production canonical base
+const CANONICAL_BASE_URL = process.env.NEXT_PUBLIC_CANONICAL_BASE_URL || 'https://www.techbrief.ai'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
@@ -57,7 +59,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(getServerSideURL()),
+  metadataBase: new URL(CANONICAL_BASE_URL),
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
