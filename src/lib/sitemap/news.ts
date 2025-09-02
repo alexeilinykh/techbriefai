@@ -22,7 +22,7 @@ function escapeXml(value: string): string {
 export function generateNewsSitemap(posts: Post[], opts: Options = {}): string {
   const siteUrl =
     opts.siteUrl ||
-    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.NEXT_PUBLIC_SERVER_URL ||
     process.env.SITE_URL ||
     process.env.APP_URL ||
     ''
