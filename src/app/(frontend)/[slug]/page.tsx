@@ -76,9 +76,10 @@ export default async function Page({ params: paramsPromise }: Args) {
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { slug = 'home' } = await paramsPromise
   const page = await queryPageBySlug({ slug })
+  const meta = await generateMeta({ doc: page })
 
   return {
-    ...generateMeta({ doc: page }),
+    ...meta,
     alternates: {
       canonical: slug === 'home' ? '/' : `/${slug}`,
     },
