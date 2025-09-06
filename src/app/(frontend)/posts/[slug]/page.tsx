@@ -81,8 +81,10 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
+  const post = await queryPostBySlug({ slug })
   return {
     // merge your existing post metadata here if you have a helper
+    ...generateMeta({ doc: post }),
     alternates: {
       canonical: `/posts/${slug}`,
     },
