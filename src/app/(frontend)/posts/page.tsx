@@ -12,6 +12,7 @@ export const dynamic = 'force-static'
 export const revalidate = 600
 
 export const metadata: Metadata = {
+  title: 'TechBriefAI Posts',
   alternates: {
     canonical: '/posts',
   },
