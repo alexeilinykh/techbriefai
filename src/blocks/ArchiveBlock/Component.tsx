@@ -6,6 +6,7 @@ import React from 'react'
 import RichText from '@/components/RichText'
 
 import { CollectionArchive } from '@/components/CollectionArchive'
+import { Pagination } from '@/components/Pagination'
 
 export const ArchiveBlock: React.FC<
   ArchiveBlockProps & {
@@ -17,6 +18,7 @@ export const ArchiveBlock: React.FC<
   const limit = limitFromProps || 3
 
   let posts: Post[] = []
+  let fetchedPosts = null
 
   if (populateBy === 'collection') {
     const payload = await getPayload({ config: configPromise })
@@ -26,7 +28,7 @@ export const ArchiveBlock: React.FC<
       else return category
     })
 
-    const fetchedPosts = await payload.find({
+    fetchedPosts = await payload.find({
       collection: 'posts',
       depth: 1,
       limit,
@@ -64,6 +66,12 @@ export const ArchiveBlock: React.FC<
         </div>
       )}
       <CollectionArchive posts={posts} />
+
+      <div className="container">
+        {fetchedPosts && fetchedPosts.totalPages > 1 && fetchedPosts.page && (
+          <Pagination page={fetchedPosts.page} totalPages={fetchedPosts.totalPages} />
+        )}
+      </div>
     </div>
   )
 }
