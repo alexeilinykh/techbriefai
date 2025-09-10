@@ -1,4 +1,3 @@
-import * as migration_20250910_043045 from './20250910_043045'
 import * as migration_20250910_043145 from './20250910_043145'
 
 export const migrations = [
