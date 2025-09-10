@@ -17,6 +17,7 @@ import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { populateAuthors } from './hooks/populateAuthors'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
+import { notifyIndexNow } from './hooks/notifyIndexNow'
 
 import {
   MetaDescriptionField,
@@ -220,7 +221,7 @@ export const Posts: CollectionConfig<'posts'> = {
     ...slugField(),
   ],
   hooks: {
-    afterChange: [revalidatePost],
+    afterChange: [notifyIndexNow, revalidatePost],
     afterRead: [populateAuthors],
     afterDelete: [revalidateDelete],
   },
