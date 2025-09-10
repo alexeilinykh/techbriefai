@@ -23,20 +23,16 @@ export const notifyIndexNow: CollectionAfterChangeHook<Post> = ({ doc, req: { pa
     .then((response) => {
       if (!response.ok) {
         return response.text().then((errorText) => {
-          console.log('Failed to notify IndexNow:', errorText)
-
           payload.logger.error(
             `Failed to notify IndexNow at ${INDEX_NOW_ENDPOINT}: ${response.status} ${errorText}`,
           )
         })
       }
-      console.log('Successfully notified IndexNow for URL:', fullUrl)
       payload.logger.info(
         `Successfully notified IndexNow at ${INDEX_NOW_ENDPOINT} for URL: ${fullUrl}`,
       )
     })
     .catch((error) => {
-      console.log('Error notifying IndexNow:', error)
       payload.logger.error(
         `Error notifying IndexNow at ${INDEX_NOW_ENDPOINT}: ${error instanceof Error ? error.message : String(error)}`,
       )
