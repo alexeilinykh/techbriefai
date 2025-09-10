@@ -17,6 +17,7 @@ export const Users: CollectionConfig = {
   },
   auth: {
     useAPIKey: true,
+    verify: true,
   },
   fields: [
     {
