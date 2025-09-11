@@ -19,7 +19,8 @@ import './globals.css'
 import Script from 'next/script'
 
 // Use an env var so previews/staging can still point at the production canonical base
-const CANONICAL_BASE_URL = process.env.NEXT_PUBLIC_CANONICAL_BASE_URL || 'https://www.techbrief.ai'
+const CANONICAL_BASE_URL =
+  process.env.NEXT_PUBLIC_CANONICAL_BASE_URL || 'https://www.techbriefai.com'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
