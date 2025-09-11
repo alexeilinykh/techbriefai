@@ -111,3 +111,7 @@ html[data-theme='light'] {
   width: 30px !important;
   height: 30px !important;
 }
+
+.formkit-guarantee a {
+  text-decoration: underline !important;
+}
