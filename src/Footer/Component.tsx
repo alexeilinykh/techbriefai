@@ -6,7 +6,6 @@ import type { Footer } from '@/payload-types'
 
 import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
-import { Logo } from '@/components/Logo/Logo'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 
 export async function Footer() {
@@ -39,6 +38,12 @@ export async function Footer() {
         </div>
 
         <div className="flex flex-col-reverse items-start md:flex-row gap-4 md:items-center">
+          <Link
+            href="/privacy-policy"
+            className="text-white dark:text-foreground hover:text-gray-300 dark:hover:text-gray-400 transition-colors"
+          >
+            Privacy Policy
+          </Link>
           <ThemeSelector />
           <nav className="flex flex-col md:flex-row gap-4">
             {navItems.map(({ link }, i) => {
