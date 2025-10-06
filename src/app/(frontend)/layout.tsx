@@ -16,7 +16,6 @@ import { Analytics } from '@vercel/analytics/next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 import './globals.css'
-import Script from 'next/script'
 
 // Use an env var so previews/staging can still point at the production canonical base
 const CANONICAL_BASE_URL =
@@ -48,14 +47,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         </Providers>
         <Analytics />
         <GoogleAnalytics gaId="G-86SRCW4200" />
-        <Script id="google-ads" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-975481101');
-          `}
-        </Script>
       </body>
     </html>
   )
