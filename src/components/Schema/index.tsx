@@ -1,4 +1,4 @@
-import type { Post } from '@payload-types'
+import type { Post } from '@/payload-types'
 
 export const articleSchema = (props: Post) => {
   return {
