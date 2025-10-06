@@ -101,17 +101,3 @@ html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
 }
-
-.formkit-powered-by-convertkit-container {
-  display: none !important;
-}
-
-.formkit-close {
-  line-height: 30px !important;
-  width: 30px !important;
-  height: 30px !important;
-}
-
-.formkit-guarantee a {
-  text-decoration: underline !important;
-}

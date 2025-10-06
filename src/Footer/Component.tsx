@@ -6,7 +6,6 @@ import type { Footer } from '@/payload-types'
 
 import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
-import { NewsletterSignup } from '@/components/NewsletterSignup'
 
 export async function Footer() {
   const footerData: Footer = await getCachedGlobal('footer', 1)()
@@ -58,7 +57,6 @@ export async function Footer() {
           </nav>
         </div>
       </div>
-      <NewsletterSignup />
     </footer>
   )
 }
