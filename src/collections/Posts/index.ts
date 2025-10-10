@@ -18,6 +18,7 @@ import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { populateAuthors } from './hooks/populateAuthors'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
 import { notifyIndexNow } from './hooks/notifyIndexNow'
+import { shareToTwitter } from './hooks/shareToTwitter'
 
 import {
   MetaDescriptionField,
@@ -221,7 +222,7 @@ export const Posts: CollectionConfig<'posts'> = {
     ...slugField(),
   ],
   hooks: {
-    afterChange: [notifyIndexNow, revalidatePost],
+    afterChange: [shareToTwitter, notifyIndexNow, revalidatePost],
     afterRead: [populateAuthors],
     afterDelete: [revalidateDelete],
   },
