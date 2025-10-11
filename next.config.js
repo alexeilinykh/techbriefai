@@ -34,7 +34,15 @@ const nextConfig = {
   async headers() {
     return [
       {
-        // Apply to all blog post pages
+        source: '/robots.txt',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         source: '/posts/:slug',
         headers: [
           {
