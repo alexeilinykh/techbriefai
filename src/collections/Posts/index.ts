@@ -222,7 +222,7 @@ export const Posts: CollectionConfig<'posts'> = {
     ...slugField(),
   ],
   hooks: {
-    afterChange: [notifyIndexNow, revalidatePost],
+    afterChange: [shareToTwitter, notifyIndexNow, revalidatePost],
     afterRead: [populateAuthors],
     afterDelete: [revalidateDelete],
   },
