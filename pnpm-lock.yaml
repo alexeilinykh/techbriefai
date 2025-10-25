@@ -163,6 +163,9 @@ importers:
       copyfiles:
         specifier: ^2.4.1
         version: 2.4.1
+      esbuild:
+        specifier: ^0.25.9
+        version: 0.25.11
       eslint:
         specifier: ^9.16.0
         version: 9.38.0(jiti@1.21.7)
