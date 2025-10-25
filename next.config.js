@@ -29,7 +29,6 @@ const nextConfig = {
 
     return webpackConfig
   },
-  turbopack: {},
   reactStrictMode: true,
   redirects,
   async headers() {
