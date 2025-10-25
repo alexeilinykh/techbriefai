@@ -18,9 +18,6 @@ importers:
       '@payloadcms/admin-bar':
         specifier: 3.61.1
         version: 3.61.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      '@payloadcms/db-d1-sqlite':
-        specifier: 3.61.1
-        version: 3.61.1(@types/pg@8.10.2)(payload@3.61.1(graphql@16.11.0)(typescript@5.7.3))(pg@8.16.3)
       '@payloadcms/db-postgres':
         specifier: 3.61.1
         version: 3.61.1(payload@3.61.1(graphql@16.11.0)(typescript@5.7.3))
@@ -1435,11 +1432,6 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-
-  '@payloadcms/db-d1-sqlite@3.61.1':
-    resolution: {integrity: sha512-VzwXg5+xkuvh1TztAbwisyL/g4mgGa5Rs63qmJLznZWgwzMo1jx6Mu99yB8zW+B0fZYaTGMYbe8waBviNWwffg==}
-    peerDependencies:
-      payload: 3.61.1
 
   '@payloadcms/db-postgres@3.61.1':
     resolution: {integrity: sha512-MEshzAfoJTBQy1fRvk3DBQ+LC5ai80e0M1ZokIF151LPj8OjsQOpNJUUCPYQB8p6ofZGPmbxFnGjJKE7G9Wgzg==}
@@ -7023,48 +7015,6 @@ snapshots:
     dependencies:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
-
-  '@payloadcms/db-d1-sqlite@3.61.1(@types/pg@8.10.2)(payload@3.61.1(graphql@16.11.0)(typescript@5.7.3))(pg@8.16.3)':
-    dependencies:
-      '@payloadcms/drizzle': 3.61.1(@types/pg@8.10.2)(payload@3.61.1(graphql@16.11.0)(typescript@5.7.3))(pg@8.16.3)
-      console-table-printer: 2.12.1
-      drizzle-kit: 0.31.5
-      drizzle-orm: 0.44.6(@types/pg@8.10.2)(pg@8.16.3)
-      payload: 3.61.1(graphql@16.11.0)(typescript@5.7.3)
-      prompts: 2.4.2
-      to-snake-case: 1.0.0
-      uuid: 9.0.0
-    transitivePeerDependencies:
-      - '@aws-sdk/client-rds-data'
-      - '@cloudflare/workers-types'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@libsql/client-wasm'
-      - '@neondatabase/serverless'
-      - '@op-engineering/op-sqlite'
-      - '@opentelemetry/api'
-      - '@planetscale/database'
-      - '@prisma/client'
-      - '@tidbcloud/serverless'
-      - '@types/better-sqlite3'
-      - '@types/pg'
-      - '@types/sql.js'
-      - '@upstash/redis'
-      - '@vercel/postgres'
-      - '@xata.io/client'
-      - better-sqlite3
-      - bun-types
-      - expo-sqlite
-      - gel
-      - knex
-      - kysely
-      - mysql2
-      - pg
-      - postgres
-      - prisma
-      - sql.js
-      - sqlite3
-      - supports-color
 
   '@payloadcms/db-postgres@3.61.1(payload@3.61.1(graphql@16.11.0)(typescript@5.7.3))':
     dependencies:
