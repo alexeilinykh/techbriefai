@@ -31,7 +31,8 @@ export const shareToTwitter: CollectionAfterChangeHook<Post> = async ({
     await twitter.v2.reply(url, tweet.data.id)
   } catch (error) {
     if (error instanceof ApiResponseError && error.rateLimitError) {
-      req.payload.logger.warn('Twitter rate limit reached while sharing post', {
+      req.payload.logger.warn({
+        message: 'Twitter rate limit reached while sharing post',
         slug: doc.slug,
         rateLimit: error.rateLimit,
       })
@@ -39,7 +40,8 @@ export const shareToTwitter: CollectionAfterChangeHook<Post> = async ({
       return
     }
 
-    req.payload.logger.error('Failed to share post to Twitter', {
+    req.payload.logger.error({
+      message: 'Failed to share post to Twitter',
       slug: doc.slug,
       error,
     })
