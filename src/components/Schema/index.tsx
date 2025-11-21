@@ -3,7 +3,8 @@ import type { Post } from '@/payload-types'
 export const articleSchema = (props: Post) => {
   return {
     '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
+    '@type': 'TechArticle',
+    proficiencyLevel: 'Intermediate',
     headline: props.title,
     datePublished: new Date(props.createdAt),
     dateModified: new Date(props.updatedAt),
