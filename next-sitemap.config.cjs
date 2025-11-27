@@ -12,7 +12,7 @@ module.exports = {
     policies: [
       {
         userAgent: '*',
-        disallow: '/admin/*',
+        disallow: '/',
       },
     ],
     additionalSitemaps: [
