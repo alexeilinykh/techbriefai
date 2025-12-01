@@ -19,6 +19,7 @@ import { populateAuthors } from './hooks/populateAuthors'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
 import { notifyIndexNow } from './hooks/notifyIndexNow'
 import { shareToTwitter } from './hooks/shareToTwitter'
+import { postToLinkedIn } from './hooks/postToLinkedIn'
 
 import {
   MetaDescriptionField,
@@ -222,7 +223,7 @@ export const Posts: CollectionConfig<'posts'> = {
     ...slugField(),
   ],
   hooks: {
-    afterChange: [shareToTwitter, notifyIndexNow, revalidatePost],
+    afterChange: [shareToTwitter, notifyIndexNow, revalidatePost, postToLinkedIn],
     afterRead: [populateAuthors],
     afterDelete: [revalidateDelete],
   },
