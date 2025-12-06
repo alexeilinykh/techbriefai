@@ -19,7 +19,7 @@ export const generatePreviewPath = ({ collection, slug }: Props) => {
     previewSecret: process.env.PREVIEW_SECRET || '',
   })
 
-  const url = `/next/preview?${encodedParams.toString()}`
+  const url = `https://www.techbriefai.com/${collection}/${slug}`
 
   return url
 }
