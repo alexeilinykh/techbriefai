@@ -20,6 +20,7 @@ import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
 import { notifyIndexNow } from './hooks/notifyIndexNow'
 import { shareToTwitter } from './hooks/shareToTwitter'
 import { postToLinkedIn } from './hooks/postToLinkedIn'
+import { purgeCloudflareCache } from './hooks/purgeCloudflareCache'
 
 import {
   MetaDescriptionField,
@@ -223,7 +224,13 @@ export const Posts: CollectionConfig<'posts'> = {
     ...slugField(),
   ],
   hooks: {
-    afterChange: [shareToTwitter, notifyIndexNow, revalidatePost, postToLinkedIn],
+    afterChange: [
+      shareToTwitter,
+      notifyIndexNow,
+      revalidatePost,
+      postToLinkedIn,
+      purgeCloudflareCache,
+    ],
     afterRead: [populateAuthors],
     afterDelete: [revalidateDelete],
   },
