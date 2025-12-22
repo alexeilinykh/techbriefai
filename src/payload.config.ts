@@ -16,6 +16,7 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import { vector } from '@payloadcms/db-postgres/drizzle/pg-core'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -63,6 +64,17 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
+    afterSchemaInit: [
+      ({ schema, extendTable }) => {
+        extendTable({
+          table: schema.tables.posts,
+          columns: {
+            embedding: vector('embedding', { dimensions: 768 }),
+          },
+        })
+        return schema
+      },
+    ],
   }),
   collections: [Pages, Posts, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
