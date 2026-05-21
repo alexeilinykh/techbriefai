@@ -45,7 +45,5 @@ export const shareToTwitter: CollectionAfterChangeHook<Post> = async ({
       slug: doc.slug,
       error,
     })
-
-    throw error
   }
 }
